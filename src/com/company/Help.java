@@ -128,12 +128,12 @@ public class Help {
     }
 
 
-    public static void listStock (List<Stocks> listCP){
+    public static void listStock (List<Stocks> listS){
 
         int i;
-        for (i = 0; i < listCP.size() ; i++) {
+        for (i = 0; i < listS.size() ; i++) {
             System.out.println("Index of the character : " + i);
-            System.out.println(listCP.get(i));
+            System.out.println(listS.get(i));
         }
 
     }
@@ -147,12 +147,12 @@ public class Help {
         if (uc == 1) {
             // remove object Character at index ch and retrieve this object from method return
             Stocks removeStock = listS.remove(ch);
-            System.out.println("The user named " + removeStock.g+ " has been removed ^^");
+            System.out.println("The user named " + removeStock.getStocks() + " has been removed ^^");
         }
     }
 
 
-    public static void processCmd(int cmdNumber, List<Users> listCP) {
+    public static void processCmd(int cmdNumber, List<Users> listCP, List<Stocks>listS) {
 
         if (cmdNumber == 0) {
             Help.help();
@@ -170,16 +170,16 @@ public class Help {
             Help.listUser(listCP);
         }
         if (cmdNumber == 5) {
-            Help.addStock(listCP);
+            Help.addStock();
         }
        // if (cmdNumber == 6) {
          //   listCP.add(Help.editStock());
         //}
         if (cmdNumber == 7) {
-            listCP.add(Help.removeStock());
+            Help.removeStock(listS);
         }
         if (cmdNumber == 8) {
-            listCP.add(Help.listStock());
+            Help.listStock(listS);
         }
         /*if (cmdNumber == 9) {
             listCP.add(Help.endPurchase());
