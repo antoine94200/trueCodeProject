@@ -1,9 +1,26 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        System.out.println("Application has started");
+        List<Users> listUser;
+        listUser = new ArrayList<>();
+        Help.help();
+
+        int ch;
+        do{
+            ch = Help.getUserChoice();
+            // if command is valid, process it
+            if( ch != -1 ){
+                Help.processCmd( ch, listUser );
+            }
+        }
+        while (ch != 12);
     }
 
 }

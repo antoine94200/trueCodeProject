@@ -1,23 +1,26 @@
 package com.company;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Help {
     public static void help() {
         System.out.println("MENU : ");
-        System.out.println("Step 1 to create a default character."); // create and display a character
-        System.out.println("Step 2 to display characters.");
-        System.out.println("Step 3 to choice a character for list his details. ");
-        System.out.println("Step 4 to start fight between 2 characters");
-        System.out.println("step 5 to remove a character.");
-        System.out.println("step 6 to create a Warrior.");
-        System.out.println("step 7 to create a Wizard.");
-        System.out.println("step 8 to create a Thief.");
-        System.out.println("Step 9 to exit the game. ");
+        System.out.println("Step 1 to add user."); // create and display a character
+        System.out.println("Step 2 to edit user.");
+        System.out.println("Step 3 to remove user. ");
+        System.out.println("Step 4 to list user");
+        System.out.println("step 5 to add stock.");
+        System.out.println("step 6 to edit stock.");
+        System.out.println("step 7 to remove stock.");
+        System.out.println("step 8 to list stock.");
+        System.out.println("Step 9 to end purchase. ");
         System.out.println("Step 0 for help ....");
-
+        System.out.println("Step 10 for save");
+        System.out.println("Step 11 for restore");
     }
-    public static int getUserChoice(){
+
+    public static int getUserChoice() {
 
         // affichez un message
         // instancier le scanner
@@ -33,14 +36,84 @@ public class Help {
 
         try {
             choice = sc.nextInt();
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             choice = -1;
         }
 
-        if (choice < 0){
+        if (choice < 0) {
             choice = -1;
         }
         return choice;
+    }
+
+    public static Users addUser () {
+
+        System.out.println("Enter the name of your user : ");
+        Scanner sc = new Scanner(System.in);
+        String nom = sc.next();
+
+        System.out.println("Enter the healpoint of your character : ");
+        Scanner scan = new Scanner(System.in);
+        String prenom = scan.next();
+
+        System.out.println("Enter the power of your character : ");
+        Scanner sca = new Scanner(System.in);
+        String metier = sca.next();
+
+        System.out.println("Enter the initiative of your character : ");
+        Scanner scann = new Scanner(System.in);
+        String depart = scann.next();
+        int departement = Integer.parseInt(depart);
+
+        System.out.println("Enter the initiative of your character : ");
+        Scanner scanne = new Scanner(System.in);
+        String ageUser = scann.next();
+        int age = Integer.parseInt(ageUser);
+
+        Users user = new Users(nom, prenom, metier, departement, age);
+        System.out.println("Your character has been created with success!");
+        System.out.println(user);
+
+        return user;
+    }
+
+    public static void processCmd(int cmdNumber, List<Users> listCP) {
+
+        if (cmdNumber == 0) {
+            Help.help();
+        }
+        if (cmdNumber == 1) {
+            listCP.add(Help.addUser());
+        }
+        if (cmdNumber == 2) {
+            Help.editUser(listCP);
+        }
+        if (cmdNumber == 3) {
+            Help.removeUser(listCP);
+        }
+        if (cmdNumber == 4) {
+            Help.listUser(listCP);
+        }
+        if (cmdNumber == 5) {
+            Help.addStock(listCP);
+        }
+        if (cmdNumber == 6) {
+            listCP.add(Help.editStock());
+        }
+        if (cmdNumber == 7) {
+            listCP.add(Help.removeStock());
+        }
+        if (cmdNumber == 8) {
+            listCP.add(Help.listStock());
+        }
+        if (cmdNumber == 9) {
+            listCP.add(Help.endPurchase());
+        }
+        if (cmdNumber == 10) {
+            listCP.add(Help.save());
+        }
+        if (cmdNumber == 11) {
+            listCP.add(Help.restore());
+        }
     }
 }
