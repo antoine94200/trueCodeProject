@@ -89,6 +89,20 @@ public class Help {
 
     }
 
+
+    public static void removeUser (List<Users> listU) {
+        System.out.println("enter the index of your character : ");
+        int ch = getUserChoice();
+        System.out.println("Are you sure that you wants to delete this character? Step 1 to confirm. ");
+        int uc = getUserChoice();
+        if (uc == 1) {
+            // remove object Character at index ch and retrieve this object from method return
+            Users removeUser = listU.remove(ch);
+            System.out.println("The user named " + removeUser.getFirstname()+ removeUser.getWork() + removeUser.getWork()+ " has been removed ^^");
+        }
+    }
+
+
     public static void processCmd(int cmdNumber, List<Users> listCP) {
 
         if (cmdNumber == 0) {
@@ -99,10 +113,10 @@ public class Help {
         }
         /*if (cmdNumber == 2) {
             Help.editUser(listCP);
-        }
+        }*/
         if (cmdNumber == 3) {
             Help.removeUser(listCP);
-        }*/
+        }
         if (cmdNumber == 4) {
             Help.listUser(listCP);
         }/*
