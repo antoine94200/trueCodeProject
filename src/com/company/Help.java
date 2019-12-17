@@ -102,6 +102,55 @@ public class Help {
         }
     }
 
+    public static String addStock () {
+
+        System.out.println("Enter the name of your stock : ");
+        Scanner sc = new Scanner(System.in);
+        String reference = sc.next();
+
+        System.out.println("Enter the reference of your stock : ");
+        Scanner scan = new Scanner(System.in);
+        String stock = scan.next();
+
+        System.out.println("Enter the open montant of your stock : ");
+        Scanner sca = new Scanner(System.in);
+        String openMontant = sca.next();
+        int openM = Integer.parseInt(openMontant);
+
+
+        System.out.println("Enter the departement of your user : ");
+        Scanner scann = new Scanner(System.in);
+        String depart = scann.next();
+        int departement = Integer.parseInt(depart);
+
+
+        return stock;
+    }
+
+
+    public static void listStock (List<Stocks> listCP){
+
+        int i;
+        for (i = 0; i < listCP.size() ; i++) {
+            System.out.println("Index of the character : " + i);
+            System.out.println(listCP.get(i));
+        }
+
+    }
+
+
+    public static void removeStock (List<Stocks> listS) {
+        System.out.println("enter the index of your Stock : ");
+        int ch = getUserChoice();
+        System.out.println("Are you sure that you wants to delete this character? Step 1 to confirm. ");
+        int uc = getUserChoice();
+        if (uc == 1) {
+            // remove object Character at index ch and retrieve this object from method return
+            Stocks removeStock = listS.remove(ch);
+            System.out.println("The user named " + removeStock.g+ " has been removed ^^");
+        }
+    }
+
 
     public static void processCmd(int cmdNumber, List<Users> listCP) {
 
@@ -111,28 +160,28 @@ public class Help {
         if (cmdNumber == 1) {
             listCP.add(Help.addUser());
         }
-        /*if (cmdNumber == 2) {
-            Help.editUser(listCP);
-        }*/
+       // if (cmdNumber == 2) {
+         //   Help.editUser(listCP);
+       // }
         if (cmdNumber == 3) {
             Help.removeUser(listCP);
         }
         if (cmdNumber == 4) {
             Help.listUser(listCP);
-        }/*
+        }
         if (cmdNumber == 5) {
             Help.addStock(listCP);
         }
-        if (cmdNumber == 6) {
-            listCP.add(Help.editStock());
-        }
+       // if (cmdNumber == 6) {
+         //   listCP.add(Help.editStock());
+        //}
         if (cmdNumber == 7) {
             listCP.add(Help.removeStock());
         }
         if (cmdNumber == 8) {
             listCP.add(Help.listStock());
         }
-        if (cmdNumber == 9) {
+        /*if (cmdNumber == 9) {
             listCP.add(Help.endPurchase());
         }
         if (cmdNumber == 10) {
@@ -142,9 +191,9 @@ public class Help {
             listCP.add(Help.restore());
         }
         if (cmdNumber == 12) {
-            listCP.add(Help.restore());
+           listCP.add(Help.restore());*/
 
-         */
+
     }
 
 }
