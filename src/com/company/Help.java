@@ -18,6 +18,7 @@ public class Help {
         System.out.println("Step 0 for help ....");
         System.out.println("Step 10 for save");
         System.out.println("Step 11 for restore");
+        System.out.println("Step 12 for  exit");
     }
 
     public static int getUserChoice() {
@@ -52,29 +53,40 @@ public class Help {
         Scanner sc = new Scanner(System.in);
         String nom = sc.next();
 
-        System.out.println("Enter the healpoint of your character : ");
+        System.out.println("Enter the firstname of your user : ");
         Scanner scan = new Scanner(System.in);
         String prenom = scan.next();
 
-        System.out.println("Enter the power of your character : ");
+        System.out.println("Enter the work of your user : ");
         Scanner sca = new Scanner(System.in);
         String metier = sca.next();
 
-        System.out.println("Enter the initiative of your character : ");
+        System.out.println("Enter the departement of your user : ");
         Scanner scann = new Scanner(System.in);
         String depart = scann.next();
         int departement = Integer.parseInt(depart);
 
-        System.out.println("Enter the initiative of your character : ");
+        System.out.println("Enter the age of your user : ");
         Scanner scanne = new Scanner(System.in);
         String ageUser = scann.next();
         int age = Integer.parseInt(ageUser);
 
         Users user = new Users(nom, prenom, metier, departement, age);
-        System.out.println("Your character has been created with success!");
+        System.out.println("Your user has been created with success!");
         System.out.println(user);
 
         return user;
+    }
+
+
+    public static void listUser (List<Users> listCP){
+
+        int i;
+        for (i = 0; i < listCP.size() ; i++) {
+            System.out.println("Index of the character : " + i);
+            System.out.println(listCP.get(i));
+        }
+
     }
 
     public static void processCmd(int cmdNumber, List<Users> listCP) {
@@ -85,15 +97,15 @@ public class Help {
         if (cmdNumber == 1) {
             listCP.add(Help.addUser());
         }
-        if (cmdNumber == 2) {
+        /*if (cmdNumber == 2) {
             Help.editUser(listCP);
         }
         if (cmdNumber == 3) {
             Help.removeUser(listCP);
-        }
+        }*/
         if (cmdNumber == 4) {
             Help.listUser(listCP);
-        }
+        }/*
         if (cmdNumber == 5) {
             Help.addStock(listCP);
         }
@@ -115,5 +127,10 @@ public class Help {
         if (cmdNumber == 11) {
             listCP.add(Help.restore());
         }
+        if (cmdNumber == 12) {
+            listCP.add(Help.restore());
+
+         */
     }
+
 }
