@@ -73,7 +73,8 @@ public class Help {
 
         Users user = new Users(nom, prenom, metier, departement, age);
         System.out.println("Your user has been created with success!");
-        System.out.println(user);
+        System.out.println(user.getFirstname()+ " " + user.getName() + " " +user.getAge() + " " + user.getWork() + " "
+                + user.getDepartement());
 
         return user;
     }
@@ -83,7 +84,7 @@ public class Help {
 
         int i;
         for (i = 0; i < listCP.size() ; i++) {
-            System.out.println("Index of the character : " + i);
+            System.out.println("Index of the character : " + i  );
             System.out.println(listCP.get(i));
         }
 
@@ -132,7 +133,7 @@ public class Help {
 
         int i;
         for (i = 0; i < listS.size() ; i++) {
-            System.out.println("Index of the character : " + i);
+            System.out.println("Index of the user : " + i);
             System.out.println(listS.get(i));
         }
 

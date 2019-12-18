@@ -3,8 +3,49 @@ package com.company;
 import java.util.Date;
 
 public class Purchases {
-    public Purchases (String nom, String prenom, String ref, Date dateAchat, Date dateRevente){
+    private String nom;
+    private String prenom;
+    private String ref;
+    private Date dateAchat;
+    private Date daterRevente;
 
+    public String getNom() {
+        return nom;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public Date getDateAchat() {
+        return dateAchat;
+    }
+
+    public void setDateAchat(Date dateAchat) {
+        this.dateAchat = dateAchat;
+    }
+
+    public Date getDaterRevente() {
+        return daterRevente;
+    }
+
+    public void setDaterRevente(Date daterRevente) {
+        this.daterRevente = daterRevente;
+    }
 }

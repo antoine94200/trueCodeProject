@@ -45,6 +45,10 @@ public class Users {
         this.departement = departement;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getAge() {
         return age;
     }

@@ -10,6 +10,8 @@ public class Main {
         System.out.println("Application has started");
         List<Users> listUser;
         listUser = new ArrayList<>();
+        List<Stocks> listStocks;
+        listStocks = new ArrayList<>();
         Help.help();
 
         int ch;
@@ -17,10 +19,10 @@ public class Main {
             ch = Help.getUserChoice();
             // if command is valid, process it
             if( ch != -1 ){
-                Help.processCmd( ch, listUser );
+                Help.processCmd( ch, listUser, listStocks );
             }
         }
-        while (ch != 12);
+        while (ch != 15);
     }
 
 }
