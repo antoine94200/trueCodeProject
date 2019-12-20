@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
+    /**
+     * the main class, where the prgm is executing
+     * @param args
+     */
     public static void main(String[] args) {
 	// write your code here
         System.out.println("Application has started");

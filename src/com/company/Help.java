@@ -1,8 +1,12 @@
 package com.company;
 
+import javax.xml.namespace.QName;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The help command
+ */
 public class Help {
     public static void help() {
         System.out.println("MENU : ");
@@ -21,6 +25,10 @@ public class Help {
         System.out.println("Step 12 for  exit");
     }
 
+    /**
+     * Get the user choice
+     * @return the choice of the user
+     */
     public static int getUserChoice() {
 
         // affichez un message
@@ -43,10 +51,15 @@ public class Help {
 
         if (choice < 0) {
             choice = -1;
+            System.out.println("bad command, type a valuable command please : ");
         }
         return choice;
     }
 
+    /**
+     *for add an user in the list
+     * @return the user
+     */
     public static Users addUser () {
 
         System.out.println("Enter the name of your user : ");
@@ -79,30 +92,47 @@ public class Help {
         return user;
     }
 
-
-    public static void listUser (List<Users> listCP){
+    /**
+     * for list the user in a list
+     * @param listU the list of users
+     */
+    public static void listUser (List<Users> listU){
 
         int i;
-        for (i = 0; i < listCP.size() ; i++) {
-            System.out.println("Index of the character : " + i  );
-            System.out.println(listCP.get(i));
+        for (i = 0; i < listU.size() ; i++) {
+            Users listUser = listU.get(i);
+            System.out.println("Index of the user : ");
+            System.out.println(listU.get(i));
+            System.out.println("the name of the users are : " + listUser.getName()+ " " + listUser.getFirstname() );
+
         }
 
     }
 
-
+    /**
+     * for remove an iser from the list
+     * @param listU same list where the users will be removed
+     */
     public static void removeUser (List<Users> listU) {
-        System.out.println("enter the index of your character : ");
+        System.out.println("enter the index of your user : ");
         int ch = getUserChoice();
-        System.out.println("Are you sure that you wants to delete this character? Step 1 to confirm. ");
-        int uc = getUserChoice();
-        if (uc == 1) {
-            // remove object Character at index ch and retrieve this object from method return
-            Users removeUser = listU.remove(ch);
-            System.out.println("The user named " + removeUser.getFirstname()+ removeUser.getWork() + removeUser.getWork()+ " has been removed ^^");
+        if (listU != null){
+            System.out.println("Are you sure that you wants to delete this user? Step 1 to confirm. ");
+            int uc = getUserChoice();
+            if (uc == 1) {
+                // remove object Character at index ch and retrieve this object from method return
+                Users removeUser = listU.remove(ch);
+                System.out.println("The user named " + removeUser.getFirstname()+ removeUser.getWork() + removeUser.getWork()+ " has been removed ^^");
+
+            }
         }
+
     }
 
+    /**
+     * for add a stock
+     * @return the stock
+     */
     public static String addStock () {
 
         System.out.println("Enter the name of your stock : ");
@@ -129,21 +159,29 @@ public class Help {
     }
 
 
+    /**
+     * for list the stocks in a list
+     * @param listS where are stocked the stocks
+     */
     public static void listStock (List<Stocks> listS){
 
         int i;
         for (i = 0; i < listS.size() ; i++) {
             System.out.println("Index of the user : " + i);
             System.out.println(listS.get(i));
+            System.out.println();
         }
 
     }
 
-
+    /**
+     * for remove a stock from a list
+     * @param listS the list where are stocked the stocks
+     */
     public static void removeStock (List<Stocks> listS) {
         System.out.println("enter the index of your Stock : ");
         int ch = getUserChoice();
-        System.out.println("Are you sure that you wants to delete this character? Step 1 to confirm. ");
+        System.out.println("Are you sure that you wants to delete this stock? Step 1 to confirm. ");
         int uc = getUserChoice();
         if (uc == 1) {
             // remove object Character at index ch and retrieve this object from method return
@@ -153,6 +191,12 @@ public class Help {
     }
 
 
+    /**
+     * All the commands for the user
+     * @param cmdNumber the number of the command for know which cmd execute
+     * @param listCP the list where are stocked the users
+     * @param listS the list where are stocked the stocks
+     */
     public static void processCmd(int cmdNumber, List<Users> listCP, List<Stocks>listS) {
 
         if (cmdNumber == 0) {

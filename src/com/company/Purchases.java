@@ -2,6 +2,9 @@ package com.company;
 
 import java.util.Date;
 
+/**
+ * The class where are the parameters of the purchases
+ */
 public class Purchases {
     private String nom;
     private String prenom;
