@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * class stocks with parameters
+
+ */
 public class Stocks {
 
     private String stocks;

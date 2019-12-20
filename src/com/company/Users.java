@@ -2,7 +2,9 @@ package com.company;
 
 public class Users {
 
-
+    /**
+     * the class users with all thz parameters
+     */
         private String name;
         private String firstname;
         private String work;
